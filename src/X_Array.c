@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <stdnoreturn.h>
+#include <stdalign.h>
 #include <stdio.h>
 
 #define S_(x) #x
@@ -24,7 +25,7 @@ struct array_internals {
 	size_t                     element_size,
 	                           capacity,
 	                           length;
-	_Alignas(max_align_t) char array[];
+	alignas(max_align_t) char array[];
 };
 
 void * X_Array_alloc(const size_t element_size)
