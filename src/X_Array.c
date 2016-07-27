@@ -22,9 +22,9 @@ static noreturn void array_error(const char *const msg)
 }
 
 struct array_internals {
-	size_t                     element_size,
-	                           capacity,
-	                           length;
+	size_t                    element_size,
+	                          capacity,
+	                          length;
 	alignas(max_align_t) char array[];
 };
 
