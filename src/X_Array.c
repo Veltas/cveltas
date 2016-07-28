@@ -82,3 +82,8 @@ void X_Array_free(void *const x_array)
 {
 	free(GET_INTERNALS(x_array));
 }
+
+int X_Array_empty(void *const x_array)
+{
+	return GET_INTERNALS(x_array)->length == 0;
+}

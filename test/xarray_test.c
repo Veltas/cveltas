@@ -11,8 +11,14 @@ int main(void)
 	puts("allocation");
 	stuff = X_Array_alloc(sizeof *stuff);
 
+	puts("empty");
+	assert(X_Array_empty(stuff));
+
 	puts("expand 1");
 	stuff = X_Array_expand(stuff, 1);
+
+	puts("not empty");
+	assert(!X_Array_empty(stuff));
 
 	puts("expand 10000");
 	stuff = X_Array_expand(stuff, 10000);
@@ -31,6 +37,9 @@ int main(void)
 
 	puts("clear");
 	stuff = X_Array_clear(stuff);
+
+	puts("empty");
+	assert(X_Array_empty(stuff));
 
 	puts("expand 1");
 	stuff = X_Array_expand(stuff, 1);
