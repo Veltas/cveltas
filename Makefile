@@ -1,6 +1,6 @@
 CC       = gcc
 CSTD     = -std=c11
-COUT     = -O2
+COUT     = -O3
 CFLAGS   = $(CSTD) -I include/ -Wall -W -pedantic $(COUT) -fpic
 OBJFILES = $(patsubst src/%.c,src/%.o,$(wildcard src/*.c))
 
