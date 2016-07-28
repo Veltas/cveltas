@@ -10,7 +10,7 @@
 #define ERROR(msg) array_error(__FILE__ ":" S(__LINE__) ": " msg)
 #define GET_INTERNALS(ptr) \
 	((struct array_internals *)( \
-		(char *)(ptr) - offsetof(struct array_internals, array) \
+		(unsigned char *)(ptr) - offsetof(struct array_internals, array) \
 	))
 
 static noreturn void array_error(const char *const msg)
@@ -22,10 +22,10 @@ static noreturn void array_error(const char *const msg)
 }
 
 struct array_internals {
-	size_t                    element_size,
-	                          capacity,
-	                          length;
-	alignas(max_align_t) char array[];
+	size_t element_size,
+	       capacity,
+	       length;
+	alignas(max_align_t) unsigned char array[];
 };
 
 void * X_Array_alloc(const size_t element_size)
