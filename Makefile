@@ -5,7 +5,7 @@ CFLAGS   = $(CSTD) -I include/ -Wall -W -pedantic $(COUT) -fpic
 OBJFILES = $(patsubst src/%.c,src/%.o,$(wildcard src/*.c))
 
 .PHONY: all
-all: lib/libveltas.so test
+all: lib/libveltas.so
 
 lib/libveltas.so: $(OBJFILES) | lib
 	$(CC) $(LDFLAGS) -shared -o$@ $^ $(LOADLIBS) $(LDLIBS)
@@ -18,6 +18,6 @@ clean:
 	rm -rf src/*.o lib/
 	cd test && $(MAKE) clean
 
-.PHONY: test
-test: lib/libveltas.so
+.PHONY: check
+check: lib/libveltas.so
 	cd test && $(MAKE)
