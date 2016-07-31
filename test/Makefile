@@ -6,11 +6,11 @@ ANTI_BINS = $(patsubst antitests/%.c,antitests/%,$(wildcard antitests/*.c))
 
 .PHONY: test
 test: $(BINS) $(ANTI_BINS)
-	for test_bin in $(BINS) ; do \
+	@for test_bin in $(BINS) ; do \
 		echo "===== Running $${test_bin}... =====" ; \
 		LD_LIBRARY_PATH=../lib/ ./$$test_bin || exit 1; \
 	done
-	for test_bin in $(ANTI_BINS) ; do \
+	@for test_bin in $(ANTI_BINS) ; do \
 		echo "===== Running $${test_bin}... =====" ; \
 		LD_LIBRARY_PATH=../lib/ ./$$test_bin && exit 1; \
 		true; \

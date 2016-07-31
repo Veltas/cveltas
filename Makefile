@@ -8,7 +8,7 @@ OBJFILES = $(patsubst src/%.c,src/%.o,$(wildcard src/*.c))
 all: lib/libveltas.so test
 
 lib/libveltas.so: $(OBJFILES) | lib
-	$(CC) $(LDFLAGS) -shared -o$@ $^ $(LOADLIBES) $(LDLIBS)
+	$(CC) $(LDFLAGS) -shared -o$@ $^ $(LOADLIBS) $(LDLIBS)
 
 lib:
 	mkdir -p $@
@@ -16,8 +16,8 @@ lib:
 .PHONY: clean
 clean:
 	rm -rf src/*.o lib/
-	cd test && make clean
+	cd test && $(MAKE) clean
 
 .PHONY: test
 test: lib/libveltas.so
-	cd test && make
+	cd test && $(MAKE)
