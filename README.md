@@ -11,8 +11,13 @@ Extendable array, similar to `std::vector` from C++. Create an empty array with
 `X_Array_alloc`, and extend with `X_Array_extend`:
 
 ```c
+// Create int X_Array
 int *stuff = X_Array_alloc(sizeof (int));
+
+// Extend to size 5
 stuff = X_Array_extend(stuff, 5);
+
+// We can use the pointer like a normal array for the most part
 for (size_t i = 0; i < 5; ++i) {
   stuff[i] = 20;
 }
