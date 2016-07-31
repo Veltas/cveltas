@@ -1,0 +1,9 @@
+#ifndef VELTAS_DEFS_H_INCLUDED
+#define VELTAS_DEFS_H_INCLUDED
+
+#ifndef SLING
+#define VELTAS_SLINGIFY_SLING(x) #x
+#define SLING(x) VELTAS_SLINGIFY_SLING(x)
+#endif
+
+#endif /* VELTAS_DEFS_H_INCLUDED */

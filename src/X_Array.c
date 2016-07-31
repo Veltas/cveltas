@@ -3,23 +3,12 @@
 #include <stdlib.h>
 #include <stdnoreturn.h>
 #include <stdalign.h>
-#include <stdio.h>
+#include <veltas/error.h>
 
-#define S_(x) #x
-#define S(x) S_(x)
-#define ERROR(msg) array_error(__FILE__ ":" S(__LINE__) ": " msg)
 #define GET_INTERNALS(ptr) \
 	((struct array_internals *)( \
 		(unsigned char *)(ptr) - offsetof(struct array_internals, array) \
 	))
-
-static noreturn void array_error(const char *const msg)
-{
-	fputs(msg, stderr);
-	fputc('\n', stderr);
-	fflush(stderr);
-	abort();
-}
 
 struct array_internals {
 	size_t element_size,

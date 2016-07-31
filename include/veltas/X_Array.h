@@ -15,5 +15,4 @@ void X_Array_free(void *x_array);
 
 int X_Array_empty(void *x_array);
 
-/* VELTAS_XARRAY_H_INCLUDED */
-#endif
+#endif /* VELTAS_XARRAY_H_INCLUDED */

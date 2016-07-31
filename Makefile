@@ -11,7 +11,7 @@ lib/libveltas.so: $(OBJFILES) | lib
 	$(CC) $(LDFLAGS) -shared -o$@ $^ $(LOADLIBES) $(LDLIBS)
 
 lib:
-	mkdir $@
+	mkdir -p $@
 
 .PHONY: clean
 clean:
