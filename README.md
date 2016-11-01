@@ -25,3 +25,8 @@ for (size_t i = 0; i < 5; ++i) {
 
 Cleanup with `X_Array_free`. Bear in mind the location of the array can change
 during `X_Array_extend` (which is why we assign `stuff` again).
+
+## `read_prompt`
+
+Like `fgets` but easier, for the sake of prompt-style input where you don't
+want to use `readline` (for non-GNU systems).
